@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_send"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="end"
+    >
+
+    <TextView
+        android:id="@+id/dateView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:paddingRight="@dimen/date_text_padding_left"
+        android:textSize="@dimen/date_text_size"
+        android:text="오후 10:22"
+         />
+
+    <TextView
+        android:id="@+id/contentView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/send_chat_bubble"
+        android:padding="@dimen/chat_padding"
+        android:text="이것은 안드드 숙제임"
+        android:textSize="@dimen/chat_text_size"
+        android:textColor="@color/text_color"
+        />
+</LinearLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ImageView"
+        android:layout_width="@dimen/receiver_image_size"
+        android:layout_height="@dimen/receiver_image_size"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/person" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/receiver_date_size"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/chat_padding">
+
+        <TextView
+            android:id="@+id/nameView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:paddingBottom="@dimen/receiver_padding"
+            android:text="김성근" />
+
+
+        <TextView
+            android:id="@+id/contentView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/receive_chat_bubble"
+            android:padding="@dimen/chat_padding"
+            android:text="나는 김성근이다. 지금 나는 김성근이다. 지금 나는 김성근이다. 지금 지금 나는 김성근이다. 지금 나는 김성근이다. 지금지금 나는 김성근이다. 지금 나는 김성근이다. 지금지금 나는 김성근이다. 지금 나는 김성근이다. 지금 "
+            android:textColor="@color/text_color" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/dateView"
+        android:layout_width="@dimen/receiver_date_size"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="@dimen/receiver_date_marginLeft"
+        android:paddingLeft="@dimen/date_text_padding_left"
+        android:text="오후 10:22"
+        android:textSize="@dimen/chat_text_size" />
+</LinearLayout>

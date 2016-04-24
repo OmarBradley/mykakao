@@ -24,6 +24,7 @@ import java.util.List;
  */
 public class ChatViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    private static final String SET_DATA_METHOD_NAME = "setData";
     List<ChatData> items = new ArrayList<>();
     ViewAdder adder;
 
@@ -71,16 +72,19 @@ public class ChatViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Class<?> c = adder.getViewHolderClass(getItemViewType(position));
+        Class<?> viewHolderClass = adder.getViewHolderClass(getItemViewType(position));
+        invokeSetDataMethod(viewHolderClass, holder, position);
+    }
+
+    private void invokeSetDataMethod(Class<?> c, RecyclerView.ViewHolder holder, int position) {
         c.cast(holder);
-        Method method = null;
+        Method method;
         try {
-            method = c.getMethod("setData", ChatData.class);
+            method = c.getMethod(SET_DATA_METHOD_NAME, ChatData.class);
             method.invoke(holder, items.get(position));
         } catch (Exception e) {
             Log.e("Exception", e.toString());
         }
     }
-
 
 }

@@ -3,6 +3,8 @@
     android:id="@+id/layout_send"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/chat_view_paddingBottom"
+    android:paddingLeft="@dimen/sender_marginLeft"
     android:gravity="end"
     >
 

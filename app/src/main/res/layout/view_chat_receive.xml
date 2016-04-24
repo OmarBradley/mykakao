@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/chat_view_paddingBottom"
     android:orientation="horizontal">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -48,5 +49,5 @@
         android:layout_marginLeft="@dimen/receiver_date_marginLeft"
         android:paddingLeft="@dimen/date_text_padding_left"
         android:text="오후 10:22"
-        android:textSize="@dimen/chat_text_size" />
+        android:textSize="@dimen/date_text_size" />
 </LinearLayout>

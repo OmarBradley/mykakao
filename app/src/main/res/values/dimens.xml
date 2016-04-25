@@ -11,11 +11,13 @@
 
     <dimen name="receiver_image_size">40dp</dimen>
     <dimen name="receiver_padding">6dp</dimen>
-    <dimen name="receiver_date_size">90dp</dimen>
-    <dimen name="receiver_date_marginLeft">-90dp</dimen>
+    <dimen name="receiver_date_size">80dp</dimen>
+    <dimen name="receiver_date_marginLeft">-80dp</dimen>
 
-    <dimen name="chat_view_paddingBottom">4dp</dimen>
+    <dimen name="chat_view_paddingBottom">8dp</dimen>
     <dimen name="sender_marginLeft">50dp</dimen>
 
+    <dimen name="chatRoomActionBarStyle_elevation">8dp</dimen>
 
+    <dimen name="view_input_text_elevation">4dp</dimen>
 </resources>

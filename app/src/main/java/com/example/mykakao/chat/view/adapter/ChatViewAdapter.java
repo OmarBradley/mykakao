@@ -28,25 +28,25 @@ public class ChatViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     List<ChatData> items = new ArrayList<>();
     ViewAdder adder;
 
-    public ChatViewAdapter(){
-        adder = new ViewAdder(setViewElements());
+    public ChatViewAdapter() {
+        setViewElements();
     }
 
     // view를 추가할 시 여기에 관련 view 요소들만 추가해주면 됨
-    public List<ViewElement> setViewElements(){
+    public void setViewElements() {
+        adder = new ViewAdder();
         ViewElement receiverViewElement = new ViewElement()
                 .setViewHolderClass(ReceiverViewHolder.class)
                 .setViewId(ViewIdPool.RECEIVER_VIEW.getViewId())
                 .setChatDataClass(ReceiverData.class)
                 .setResourceId(R.layout.view_chat_receive);
-
+        adder.addViewElement(receiverViewElement);
         ViewElement senderViewElement = new ViewElement()
                 .setViewHolderClass(SenderViewHolder.class)
                 .setViewId(ViewIdPool.SENDER_VIEW.getViewId())
                 .setChatDataClass(SenderData.class)
                 .setResourceId(R.layout.view_chat_send);
-        List<ViewElement> viewElements = Arrays.asList(receiverViewElement,senderViewElement);
-        return viewElements;
+        adder.addViewElement(senderViewElement);
     }
 
     public void add(ChatData data) {

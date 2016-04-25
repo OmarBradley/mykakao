@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:paddingBottom="@dimen/chat_view_paddingBottom"
     android:paddingLeft="@dimen/sender_marginLeft"
+
     android:gravity="end"
     >
 
@@ -15,6 +16,7 @@
         android:layout_gravity="bottom"
         android:paddingRight="@dimen/date_text_padding_left"
         android:textSize="@dimen/date_text_size"
+        android:textColor="@color/text_color"
         android:text="오후 10:22"
          />
 

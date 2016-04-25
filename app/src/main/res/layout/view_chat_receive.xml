@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:paddingBottom="@dimen/receiver_padding"
+            android:textColor="@color/text_color"
             android:text="김성근" />
 
 
@@ -49,5 +50,6 @@
         android:layout_marginLeft="@dimen/receiver_date_marginLeft"
         android:paddingLeft="@dimen/date_text_padding_left"
         android:text="오후 10:22"
+        android:textColor="@color/text_color"
         android:textSize="@dimen/date_text_size" />
 </LinearLayout>

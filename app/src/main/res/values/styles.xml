@@ -6,6 +6,25 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionBarStyle">@style/chatRoomActionBarStyle</item>
     </style>
 
+    <style name="chatRoomAppTheme" parent="Theme.AppCompat">
+        <item name="android:actionBarStyle">@style/chatRoomActionBarStyle</item>
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/chatRoomActionBarStyle</item>
+        <!--<item name="windowActionBarOverlay">true</item>-->
+    </style>
+
+    <style name="chatRoomActionBarStyle" parent="Base.V7.Theme.AppCompat">
+        <item name="background">@color/kakao_bg</item>
+        <item name="windowActionBar">true</item>
+        <item name="divider">?attr/dividerVertical</item>
+        <item name="elevation">@dimen/chatRoomActionBarStyle_elevation</item>
+        <item name="titleTextStyle">@style/CustomActionBarTitleText</item>
+    </style>
+
+    <style name="CustomActionBarTitleText" parent="android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/text_color</item>
+    </style>
 </resources>

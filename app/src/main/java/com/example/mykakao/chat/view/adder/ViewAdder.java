@@ -10,6 +10,7 @@ import com.annimon.stream.Stream;
 import com.example.mykakao.chat.pojo.ChatData;
 
 import java.lang.reflect.Constructor;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,6 +23,17 @@ public class ViewAdder {
     public ViewAdder(List<ViewElement> viewElements){
         this.viewElements = viewElements;
     }
+
+    public ViewAdder(){viewElements = new ArrayList<>();}
+
+    public void addViewElement(ViewElement viewElement){
+        viewElements.add(viewElement);
+    }
+
+    public void addAllViewElements(List<ViewElement> viewElements){
+        this.viewElements = viewElements;
+    }
+
 
     public int getViewId(ChatData data){
         return Stream.of(viewElements).filter(view-> {return data.getClass().getName() == view.getChatDataClass().getName();})

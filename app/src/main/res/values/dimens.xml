@@ -17,7 +17,7 @@
     <dimen name="chat_view_paddingBottom">8dp</dimen>
     <dimen name="sender_marginLeft">50dp</dimen>
 
-    <dimen name="chatRoomActionBarStyle_elevation">8dp</dimen>
+    <dimen name="chatRoomActionBarStyle_elevation">1dp</dimen>
 
     <dimen name="view_input_text_elevation">4dp</dimen>
 </resources>

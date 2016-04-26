@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.support.v7.app.*;
 
+import com.example.mykakao.chat.pojo.NullData;
 import com.example.mykakao.chat.pojo.ReceiverData;
 import com.example.mykakao.chat.pojo.SenderData;
 import com.example.mykakao.chat.view.adapter.ChatViewAdapter;
@@ -29,19 +30,16 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Bind(R.id.recycler)
-    RecyclerView recyclerView;
-    @Bind(R.id.btnReceive)
-    Button btnReceive;
-    @Bind(R.id.btnSend)
-    Button btnSend;
-    @Bind(R.id.chatText)
-    EditText chatText;
+    @Bind(R.id.recycler) RecyclerView recyclerView;
+    @Bind(R.id.btnReceive) Button btnReceive;
+    @Bind(R.id.btnSend) Button btnSend;
+    @Bind(R.id.chatText) EditText chatText;
     ChatViewAdapter chatViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setActionBar("김성근");
@@ -56,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setTitle(receiverName);
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.kakao_bg_transparent)));
+        actionBar.setStackedBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.kakao_bg_transparent)));
     }
 
     private void setRecyclerView() {
@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setButtonClickAction() {
+        chatViewAdapter.add(new NullData());
         btnReceive.setOnClickListener(view -> {
             chatViewAdapter.add(new ReceiverData(chatText.getText().toString(), DateFormatter.makeChatTimeString(), BitmapFactory.decodeResource(getResources(), R.drawable.person), "김성근"));
             hideSoftInput(view);
@@ -88,11 +89,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setButtonClickable() {
+        btnReceive.setEnabled(false);
+        btnSend.setEnabled(false);
         chatText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -107,9 +108,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
-
-            }
+            public void afterTextChanged(Editable s) {}
         });
     }
 

@@ -6,11 +6,13 @@ import android.view.ViewGroup;
 
 import com.example.mykakao.R;
 import com.example.mykakao.chat.pojo.ChatData;
+import com.example.mykakao.chat.pojo.NullData;
 import com.example.mykakao.chat.pojo.ReceiverData;
 import com.example.mykakao.chat.pojo.SenderData;
 import com.example.mykakao.chat.view.adder.ViewAdder;
 import com.example.mykakao.chat.view.adder.ViewElement;
 import com.example.mykakao.chat.view.adder.ViewIdPool;
+import com.example.mykakao.chat.view.holder.NullViewHolder;
 import com.example.mykakao.chat.view.holder.ReceiverViewHolder;
 import com.example.mykakao.chat.view.holder.SenderViewHolder;
 
@@ -47,6 +49,13 @@ public class ChatViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 .setChatDataClass(SenderData.class)
                 .setResourceId(R.layout.view_chat_send);
         adder.addViewElement(senderViewElement);
+
+        ViewElement nullViewElement = new ViewElement()
+                .setViewHolderClass(NullViewHolder.class)
+                .setViewId(ViewIdPool.NULL_VIEW.getViewId())
+                .setChatDataClass(NullData.class)
+                .setResourceId(R.layout.view_chat_null);
+        adder.addViewElement(nullViewElement);
     }
 
     public void add(ChatData data) {

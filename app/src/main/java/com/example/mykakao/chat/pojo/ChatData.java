@@ -5,10 +5,10 @@ package com.example.mykakao.chat.pojo;
  */
 public interface ChatData {
 
-    public void setDate(String date);
-    public String getDate();
+    public default void setDate(String date){};
+    public default String getDate(){return null;};
 
-    public void setContent(String content);
-    public String getContent();
+    public default void setContent(String content){};
+    public default String getContent(){return null;};
 
 }

@@ -21,7 +21,6 @@ public class DateFormatter {
 
     private static String getMeridiem() {
         int hour = DateTime.now().getHourOfDay();
-        Log.e("time", Integer.toString(hour));
         if (hour >= 1 && hour <= 11) {
             return AM;
         } else {

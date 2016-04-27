@@ -8,4 +8,7 @@
     <color name="kakao_bg">#9bbad8</color>
     <color name="kakao_bg_transparent">#c89bbad8</color>
 
+    <color name="chat_people_count_text">#ffdb0d</color>
+    <color name="home_as_up_ripple">#999999</color>
+
 </resources>

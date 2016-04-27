@@ -18,7 +18,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.support.v7.app.*;
+import android.widget.Toast;
 
+import com.example.mykakao.chat.homeAsUp.HomeAsUpView;
 import com.example.mykakao.chat.pojo.NullData;
 import com.example.mykakao.chat.pojo.ReceiverData;
 import com.example.mykakao.chat.pojo.SenderData;
@@ -42,20 +44,31 @@ public class MainActivity extends AppCompatActivity {
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        setActionBar("김성근");
+        setActionBar();
+        setHomeAsUpView("가네야바시 세이콘", 1);
         setRecyclerView();
         setButtonClickAction();
         setButtonClickable();
     }
 
-    private void setActionBar(String receiverName) {
+    private void setActionBar() {
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setTitle(receiverName);
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.kakao_bg_transparent)));
         actionBar.setStackedBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.kakao_bg_transparent)));
+    }
+
+    private void setHomeAsUpView(String roomName, int roomCount){
+        ActionBar actionBar = getSupportActionBar();
+        HomeAsUpView view = new HomeAsUpView(MainActivity.this);
+        actionBar.setCustomView(view);
+        actionBar.setDisplayShowCustomEnabled(true);
+        view.setPeopleCountText(roomCount);
+        view.setRoomNameText(roomName);
+        view.setOnClickListener(v->{
+            Toast.makeText(getApplicationContext(),"Click", Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void setRecyclerView() {

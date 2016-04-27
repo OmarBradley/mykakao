@@ -20,4 +20,12 @@
     <dimen name="chatRoomActionBarStyle_elevation">1dp</dimen>
 
     <dimen name="view_input_text_elevation">4dp</dimen>
+
+    <dimen name="chat_room_text_marginTop">3dp</dimen>
+    <dimen name="chat_room_name_marginLeft">-8dp</dimen>
+    <dimen name="chat_room_name_text_marginRight">2dp</dimen>
+    <dimen name="chat_room_text_size">18sp</dimen>
+
+    <dimen name="home_as_up_marginLeft">-13dp</dimen>
+
 </resources>

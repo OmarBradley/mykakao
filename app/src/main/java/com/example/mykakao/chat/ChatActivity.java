@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,7 +28,6 @@ import com.example.mykakao.chat.search.ChatSearchView;
 import com.example.mykakao.chat.search.ChatSearchViewModel;
 import com.example.mykakao.chat.view.adapter.ChatViewAdapter;
 import com.example.mykakao.util.DateFormatter;
-import com.example.mykakao.util.OnTextChangeListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

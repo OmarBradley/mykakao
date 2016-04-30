@@ -1,13 +1,10 @@
 package com.example.mykakao.chat.search;
 
 import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
-import android.text.TextWatcher;
 
 import com.annimon.stream.Stream;
 import com.example.mykakao.chat.pojo.ChatData;
 import com.example.mykakao.chat.view.adapter.ChatViewAdapter;
-import com.example.mykakao.util.OnTextChangeListener;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

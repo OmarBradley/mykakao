@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 /**
  * Created by 재화 on 2016-04-27.
  */
-public class HomeAsUpView extends LinearLayout {
+public class HomeAsUpView extends LinearLayout{
 
     @Bind(R.id.roomNameView) TextView roomNameView;
     @Bind(R.id.peopleCountView) TextView peopleCountView;

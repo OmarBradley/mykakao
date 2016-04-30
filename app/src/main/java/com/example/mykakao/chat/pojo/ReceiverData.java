@@ -7,8 +7,8 @@ import android.graphics.Bitmap;
  */
 public class ReceiverData implements ChatData {
 
-    private Bitmap image; // fiyweight instance 사용 해봐야 겠다
-    private String name; // fiyweight instance 사용 해봐야 겠다
+    private Bitmap image;
+    private String name;
     private String date;
     private String content;
 

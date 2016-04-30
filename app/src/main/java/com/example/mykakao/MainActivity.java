@@ -2,7 +2,6 @@ package com.example.mykakao;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,8 +10,10 @@ import android.support.v7.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -24,6 +25,7 @@ import com.example.mykakao.chat.homeAsUp.HomeAsUpView;
 import com.example.mykakao.chat.pojo.NullData;
 import com.example.mykakao.chat.pojo.ReceiverData;
 import com.example.mykakao.chat.pojo.SenderData;
+import com.example.mykakao.chat.search.ChatSearchView;
 import com.example.mykakao.chat.view.adapter.ChatViewAdapter;
 import com.example.mykakao.util.DateFormatter;
 
@@ -49,6 +51,42 @@ public class MainActivity extends AppCompatActivity {
         setRecyclerView();
         setButtonClickAction();
         setButtonClickable();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_search_view, menu);
+        return true;
+    }
+
+    boolean searchOpened = false;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.search) {
+            if (searchOpened) {
+                closeSearchBar();
+            } else {
+                openSearchBar();
+            }
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void closeSearchBar() {
+        setHomeAsUpView("가네야바시 세이콘", 1);
+        searchOpened = false;
+    }
+    private void openSearchBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(true);
+        ChatSearchView view = new ChatSearchView(MainActivity.this, chatViewAdapter, recyclerView);
+        ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT );
+        actionBar.setCustomView(view, layoutParams);
+        searchOpened = true;
     }
 
     private void setActionBar() {
@@ -119,7 +157,6 @@ public class MainActivity extends AppCompatActivity {
                     btnSend.setEnabled(true);
                 }
             }
-
             @Override
             public void afterTextChanged(Editable s) {}
         });

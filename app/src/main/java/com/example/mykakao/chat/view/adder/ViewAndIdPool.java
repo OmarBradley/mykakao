@@ -3,10 +3,10 @@ package com.example.mykakao.chat.view.adder;
 /**
  * Created by 재화 on 2016-04-24.
  */
-public enum ViewIdPool {
+public enum ViewAndIdPool {
     RECEIVER_VIEW(1), SENDER_VIEW(2), NULL_VIEW(3);
 
-    ViewIdPool(int viewId) {
+    ViewAndIdPool(int viewId) {
         this.viewId = viewId;
     }
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">mykakao</string>
+    <string name="search_hint">대화내용 검색</string>
 </resources>

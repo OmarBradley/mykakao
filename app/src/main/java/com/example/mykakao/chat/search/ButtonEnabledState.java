@@ -1,10 +1,9 @@
-package com.example.mykakao.chat.search.scroll;
+package com.example.mykakao.chat.search;
 
 import android.util.Log;
 import android.widget.Button;
 
 import com.annimon.stream.function.BiConsumer;
-import com.annimon.stream.function.Consumer;
 
 /**
  * Created by 재화 on 2016-04-30.
@@ -12,8 +11,8 @@ import com.annimon.stream.function.Consumer;
 public class ButtonEnabledState {
 
     Button up, down;
-
-    public ButtonEnabledState() {}
+    public static final int DEFAULT_POSITION = -1;
+    public static final int DEFAULT_ITEM_POSITION_SIZE = -1;
 
     public ButtonEnabledState(Button down, Button up) {
         this.down = down;
@@ -44,18 +43,16 @@ public class ButtonEnabledState {
         Log.e("state", "emptyItemPositionsState");
     };
 
-    public void setEnabledState(int position, int itemPositionsSize){
+    public void setEnabledState(int position, int itemPositionsSize) {
         Log.e("po", Integer.toString(itemPositionsSize) + " / " + Integer.toString(position));
-        if (position == 0) {
+        if (itemPositionsSize == 0 || (position == DEFAULT_POSITION && itemPositionsSize == DEFAULT_ITEM_POSITION_SIZE)) {
+            emptyItemPositionsState.accept(up, down);
+        } else if (position < 0) {
             zeroPositionState.accept(up, down);
-        } else if (itemPositionsSize == 0) {
-            emptyItemPositionsState.accept(up, down);
-        } else if (position > 0 && position < itemPositionsSize - 1) {
+        } else if (position >= 0 && position < itemPositionsSize - 1) {
             middlePositionState.accept(up, down);
-        } else if (position >= itemPositionsSize - 1) {
+        } else if (position == itemPositionsSize -1) {
             fullPositionState.accept(up, down);
-        } else if (position == -1 && itemPositionsSize == -1) {
-            emptyItemPositionsState.accept(up, down);
         }
     }
 
